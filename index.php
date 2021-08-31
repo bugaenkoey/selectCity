@@ -6,7 +6,7 @@ $_SESSION['username']="root";
 $_SESSION['password']="";
 $_SESSION['database']="CountryCity";
 
-include_once("createTables.php");
+// include_once("createTables.php");
 require("lists.php");
 
 ?>

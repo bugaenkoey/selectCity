@@ -13,19 +13,18 @@ function select($connDb)
     $sqlQuery = "SELECT country FROM countries ;";
     $result   = $connDb->query($sqlQuery);
     return $result->fetch_all(MYSQLI_ASSOC);
-    
 }
-echo "<form>
-<select name = 'countri' onchange='showCities (this.value)'>
-<option selected disabled>Select countri</option>";
-foreach ($countries as $key => $value) {
-    echo "<option value='" . $countries[$key]['country'] . "'>" . $countries[$key]['country'] . "</option>";
-}
-echo "
-</select>
-<form>";
 
 ?>
+<form>
+    <select name='countri' onchange='showCities (this.value)'>
+        <option selected disabled>Select countri</option>
+        <?php foreach ($countries as $key => $value) : ?>
+            <option value="<?php echo $countries[$key]['country'] ?>"> <?php echo $countries[$key]['country'] ?> </option>;
+        <?php endforeach ?>
+    </select>
+<form>
+
 <script>
     function showCities(str) {
         if (str == "") {
@@ -44,4 +43,4 @@ echo "
         }
     }
 </script>
-<div id="txtHint"><b>Cities</b></div>
+<div id="txtHint"></div>
